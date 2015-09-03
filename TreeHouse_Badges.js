@@ -32,28 +32,19 @@ var badgeCtor = function(users) {
 
 
 function intersectBadges(usernameA, usernameB) {
-    var result1 = [];
-    var result2 = [];
-		var a = [];
-		var b = [];
-
 	for (var i = 0; i < users.length; i ++) {
-		if (usernameA === users[i].name)
+		if (usernameA === users[i].name) {
 				result1.push(users[i].badges);
+		}
 	}
 	for (var k = 0; k < users.length; k ++) {
-		if (usernameB === users[k].name)
+		if (usernameB === users[k].name) {
 			result2.push(users[k].badges);
-}
-  for (var h = 0; h < result1[0].length; h ++) {
-		a.push(result1[0][h]);
+		}
 	}
-	for (var j = 0; j < result2[0].length; j ++) {
-		b.push(result2[0][j]);
-	}
-
-	var same = _.intersection(a, b);
-	   return same;
+	console.log(result1)
+	var same = _.union(result1, result2)
+	console.log(same)
 }
 
 
