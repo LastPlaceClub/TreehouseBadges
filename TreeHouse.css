@@ -1,3 +1,4 @@
+/*<<<<<<< HEAD
 img {
 
 	height: 50px;
@@ -21,4 +22,20 @@ td {
 .wrap p {
   display: table-cell;
   vertical-align: middle;
+/*=======*/*/
+html{
+	text-align:center;
+	font-family: sans-serif;
+}
+
+p{
+	display:flex;
+	flex-wrap: wrap;
+	align-content: center;
+}
+
+img {
+	height: 60px;
+	width: 60px;
+
 }

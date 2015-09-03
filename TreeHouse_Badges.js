@@ -6,32 +6,32 @@ var badgeCtor = function(users) {
 	var $div = $('<div>');
 	$div.appendTo('body');
 
-	var $table = $('<table>');
-	$table.appendTo($div);
-
 	for(var i = 0; i < (users.length); i++) {
-		var $tr = $('<tr>');
-		$tr.appendTo($table);
+		var $h1 = $('<h1>');
+		$h1.appendTo($div);
 
-		var $th = $('<th>');
-		$th.appendTo($tr);
+		var userName = users[i].name
+		$h1.html(userName);
 
-		var userName = users[i].name;
-		$th.html(userName);
+		var $p = $('<p>')
+		$p.appendTo($h1)
 
 		for(var j = 0; j < users[i].badges.length; j++) {
 
+// <<<<<<< HEAD
 			var $td = $('<td>');
 			$td.appendTo($tr);
 			// if (j % 5 === 0) {
 			// 	var $row = $('<tr>');
 			// 	$row.append($table);
 			// }
+// =======
+// >>>>>>> master
 			var $badge_img = $('<img src="' + users[i].badges[j] + '">');
-			$td.html($badge_img);
+			// $p.html($badge_img);
+			$p.append($badge_img);
 
 		}
-
 	}
 
 };
