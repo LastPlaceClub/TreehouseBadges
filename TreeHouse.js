@@ -1,5 +1,5 @@
 // mycode.js
-var usernames = ['kathleenkent', 'adamtaitano', 'tybrenner'];
+var usernames = ["mitchelllillie", "patharryux", "jeffdunn", "donguyen", "mkelley2", "josephfraley2", "kathleenkent", "adamtaitano", "jasonsiren", "jtz1983", "erikphansen", "tybrenner"];
 var users = [];
 
 usernames.forEach(function(name) {
@@ -21,3 +21,18 @@ function importUser(user) {
 	}
   //add additional recommend/simliarity function
 }
+
+var master = ['izelnakri'];
+var arrayOfAll = [];
+var object = $.get('http://teamtreehouse.com/izelnakri.json');
+
+function arrayMaker() {
+for (var i = 0; i < 322; i ++) {
+  arrayOfAll.push(object.responseJSON.badges[i].icon_url);
+}
+console.log(arrayOfAll);
+return arrayOfAll;
+
+}
+
+console.log(object.responseJSON.badges);

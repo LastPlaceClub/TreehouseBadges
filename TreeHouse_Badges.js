@@ -1,3 +1,6 @@
+
+
+
 var badgeCtor = function(users) {
 
 	var $div = $('<div>');
@@ -20,7 +23,10 @@ var badgeCtor = function(users) {
 
 			var $td = $('<td>');
 			$td.appendTo($tr);
-
+			// if (j % 5 === 0) {
+			// 	var $row = $('<tr>');
+			// 	$row.append($table);
+			// }
 			var $badge_img = $('<img src="' + users[i].badges[j] + '">');
 			$td.html($badge_img);
 
@@ -96,20 +102,47 @@ var two;
     }
 }
 
-function score(badgeName, username) {
+function score(badgeURL, username) {
     var array = [];
     var test = [];
+		var names = badgeEarnedBy(badgeURL);
+		for (var i = 0; i < names.length; i ++) {
+			if (username != names[i]) {
 
+
+			test.push(similarity(username, names[i]));
+		}
+		else {
+			console.log("poop");
+		}
+	}
+		return _.round(_.sum(test), 3);
 }
-// 		result1.push(users[i].badges);
-//     for(var key1 in name1){
-//         result1.push(jobs[key1]);
+//
+function recommendBadgesFor(username) {
+	var badges = [];
+	var array = [];
+	for (var i = 0; i < users.length; i ++) {
+		if (username === users[i].name) {
+			for (var k = 0; k < users[i].badges.length; k ++) {
+		  badges.push(users[i].badges[k]);
+	 }
+	 }
+	}
+	var potentialBadges = _.difference(arrayOfAll, badges);
+	// push into an array, the badge and the score
+	for (var j = 0; j < potentialBadges.length; j ++) {
+		array.push({badge:potentialBadges[j], score: score(potentialBadges[j], username)});
+	}
+	return array;
+}
+//     var array = [];
+//     var potentialJobs = _.omit(jobs, Object.keys(does))
+//
+//     for(var key in potentialJobs) {
+//         array.push({job: key, score: score(key, (person.name))})
 //     }
 //
-//     for(var key2 in name2) {
-//         result2.push(jobs[key2]);
-//     }
-//
-//
-//
-// }
+//    return array.sort(function(a, b){
+//         return array[1].score - array[0].score
+//     })

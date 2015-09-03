@@ -1,9 +1,24 @@
 img {
-	
+
 	height: 50px;
 	width: 50px;
 }
 
 td:nth-child(5n) {
 	display: block;
+}
+
+td {
+    word-wrap: break-word;         /* All browsers since IE 5.5+ */
+    overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
+}
+
+.poop {
+	word-wrap: break-word;         /* All browsers since IE 5.5+ */
+	overflow-wrap: break-word;
+}
+
+.wrap p {
+  display: table-cell;
+  vertical-align: middle;
 }
