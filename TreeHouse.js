@@ -5,7 +5,7 @@ var users = [];
 usernames.forEach(function(name) {
     $.get('http:/teamtreehouse.com/'+name+'.json').
         done(importUser);
-})
+});
 
 function importUser(user) {
 	var obj = {};
@@ -14,10 +14,10 @@ function importUser(user) {
 	for(var i = 0; i < user.badges.length; i++) {
 		obj.badges.push(user.badges[i].icon_url);
 	}
-	users.push(obj)
+	users.push(obj);
 
 	if(users.length >= usernames.length) {
-		badgeCtor(users)
+		badgeCtor(users);
 	}
-
+  //add additional recommend/simliarity function
 }
