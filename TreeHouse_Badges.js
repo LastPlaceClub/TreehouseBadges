@@ -30,7 +30,26 @@ var badgeCtor = function(users) {
 
 };
 
-
+function badgeEarnedBy(badgeURL) {
+var array = [];
+	for (var i = 0; i < users.length; i ++) {
+		for (var k = 0; k < users[i].badges.length; k ++) {
+			if (badgeURL === users[i].badges[k]) {
+				array.push(users[i].name);
+			}
+		}
+}
+return array;
+}
+// 	array = [];
+// 	for (var i = 0; i < users.length; i ++) {
+// 		for (var k = 0; k < users[i].badges.length; k++) {
+// 		array.push(users[i].badges[k]);
+// 		console.log(users[i].badges[k]);
+// 	}
+// }
+// console.log(array);
+// }
 function intersectBadges(usernameA, usernameB) {
     var result1 = [];
     var result2 = [];
@@ -77,15 +96,10 @@ var two;
     }
 }
 
-function score(job,person) {
+function score(badgeName, username) {
     var array = [];
     var test = [];
-    var personB = peopleDoing(job);
-    for (var i = 0; i < personB.length; i ++) {
-        array.push(personB[i].name);
-        test.push((similarity(person, array[i])));
-    }
-    return eval(test.join('+'));
+
 }
 // 		result1.push(users[i].badges);
 //     for(var key1 in name1){
