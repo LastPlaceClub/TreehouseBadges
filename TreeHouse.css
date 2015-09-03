@@ -1,9 +1,13 @@
-img {
-	
-	height: 50px;
-	width: 50px;
+html{
+	text-align:center;
 }
 
-td:nth-child(5n) {
-	display: block;
+/*p{
+	display:flex;
+	flex-wrap: wrap;
+}*/
+
+img {
+	height: 60px;
+	width: 60px;
 }
