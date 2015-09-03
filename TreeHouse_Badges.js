@@ -57,6 +57,36 @@ function intersectBadges(usernameA, usernameB) {
 }
 
 
+function similarity(usernameA, usernameB){
+var one;
+var two;
+		for (var i = 0; i < users.length; i ++) {
+			if (usernameA === users[i].name) {
+				one = Object.keys(users[i].badges).length;
+			}
+		}
+		for (var j = 0; j < users.length; j ++) {
+			if (usernameB === users[j].name) {
+				two = Object.keys(users[j].badges).length;
+			}
+		}
+    if (one > two) {
+       return ((intersectBadges(usernameA, usernameB).length) / one);
+    } else {
+        return ((intersectBadges(usernameA, usernameB).length) / two);
+    }
+}
+
+function score(job,person) {
+    var array = [];
+    var test = [];
+    var personB = peopleDoing(job);
+    for (var i = 0; i < personB.length; i ++) {
+        array.push(personB[i].name);
+        test.push((similarity(person, array[i])));
+    }
+    return eval(test.join('+'));
+}
 // 		result1.push(users[i].badges);
 //     for(var key1 in name1){
 //         result1.push(jobs[key1]);
