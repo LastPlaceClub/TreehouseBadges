@@ -1,0 +1,9 @@
+img {
+	
+	height: 50px;
+	width: 50px;
+}
+
+td:nth-child(5n) {
+	display: block;
+}
