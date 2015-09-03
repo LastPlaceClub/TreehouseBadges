@@ -1,11 +1,13 @@
 html{
 	text-align:center;
+	font-family: sans-serif;
 }
 
-/*p{
+p{
 	display:flex;
 	flex-wrap: wrap;
-}*/
+	align-content: center;
+}
 
 img {
 	height: 60px;
