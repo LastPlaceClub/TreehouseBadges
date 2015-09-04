@@ -28,9 +28,9 @@ var badgeCtor = function(users) {
 		}
 	}
 
-	var sel = $('<select>').appendTo('#awesome');
+	var sel = $('<select class="target">').appendTo('#awesome');
 	$(arr).each(function() {
-	 sel.append($("<option>").attr('value',this.val).text(this.text));
+	 sel.append($("<option value='option1' id='option'>").attr('value',this.val).text(this.text));
 	});
 };
 

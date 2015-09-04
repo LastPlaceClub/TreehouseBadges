@@ -7,7 +7,7 @@ var object = {};
 var newObj = {};
 var inputValue;
 var arr = [
-  // {val : 1, text: 'Matthew Kelley'},
+  {val : -1, text: 'Select A User'},
   // {val : 2, text: 'Do Nguyen'},
   // {val : 3, text: 'Jeff Dunn'}
 ];
@@ -130,6 +130,7 @@ function myFunction() {
     if (x === "") {
       return false;
     }
+
     $( "div" ).remove();
     console.log(x);
     usernames.push(x);
@@ -144,8 +145,12 @@ function myFunction() {
         importUser(newUser);
 
 
-      }});
-
+      },
+      error: function(){
+        alert("Not A Real User!");
+      }
+      });
+}
           //
           // // var $div = $('<div>');
           // // $div.appendTo('body');
@@ -168,10 +173,36 @@ function myFunction() {
           //
 
 //}
-}
+
 
 
 // console.log(form.elements.username.type);
+var onSubmit1 = function()
+{
+    alert('Matthew Kelley');
+};
+
+var onSubmit2 = function()
+{
+    alert('Stupid');
+};
+
+// $('.target').change(function() {
+    var dropdown = $('.target');
+    var text = $( ".target option:selected" ).text();
+    console.log(text);
+    var $button1= $('#button1');
+  $button1.unbind('click');
+  $button1.click(onSubmit2);
+ if(document.getElementById('option').value == "Matthew Kelley"){
+    $button1.click(onSubmit1);
+        //return;
+  }
+
+
+
+//});
+
 
 
 
@@ -180,7 +211,7 @@ function myFunction() {
 window.onload = function() {
   console.log("loaded!");
   loadMaster();
-
+  console.log(document.getElementById('option').value);
 
 };
 
