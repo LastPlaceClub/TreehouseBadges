@@ -1,31 +1,27 @@
+//var _ = require('lodash')
+
 var badgeCtor = function(users) {
 
 	var $div = $('<div>');
 	$div.appendTo('body');
 
-	var $table = $('<table>');
-	$table.appendTo($div);
-
 	for(var i = 0; i < (users.length); i++) {
-		var $tr = $('<tr>');
-		$tr.appendTo($table);
+		var $h1 = $('<h1>');
+		$h1.appendTo($div);
 
-		var $th = $('<th>');
-		$th.appendTo($tr);
+		var userName = users[i].name
+		$h1.html(userName);
 
-		var userName = users[i].name;
-		$th.html(userName);
+		var $p = $('<p>')
+		$p.appendTo($h1)
 
 		for(var j = 0; j < users[i].badges.length; j++) {
 
-			var $td = $('<td>');
-			$td.appendTo($tr);
-
 			var $badge_img = $('<img src="' + users[i].badges[j] + '">');
-			$td.html($badge_img);
+			// $p.html($badge_img);
+			$p.append($badge_img);
 
 		}
-
 	}
 
 };
@@ -41,29 +37,26 @@ var array = [];
 }
 return array;
 }
-// 	array = [];
-// 	for (var i = 0; i < users.length; i ++) {
-// 		for (var k = 0; k < users[i].badges.length; k++) {
-// 		array.push(users[i].badges[k]);
-// 		console.log(users[i].badges[k]);
-// 	}
-// }
-// console.log(array);
-// }
+
+
 function intersectBadges(usernameA, usernameB) {
+	result1 = [];
+	result2 = [];
 	for (var i = 0; i < users.length; i ++) {
 		if (usernameA === users[i].name) {
-				result1.push(users[i].badges);
+			result1.push(users[i].badges);
+			console.log(result1)
 		}
 	}
 	for (var k = 0; k < users.length; k ++) {
 		if (usernameB === users[k].name) {
 			result2.push(users[k].badges);
+			console.log(result2)
 		}
 	}
-	console.log(result1)
-	var same = _.union(result1, result2)
-	console.log(same)
+
+	var same = _.intersection(result1, result2);
+	return same
 }
 
 
@@ -108,22 +101,33 @@ var two;
 // }
 
 
-// badgeUrl to badgeName
-function badge() {
+// badgeUrl to badgeName for multiple users
+function badgeNameMultiple(usersObject) {
 	var userBadges = [];
 	var shortURL = [];
+	var shortestURL = [];
 
 	for(var i = 0; i < users.length; i ++) {
 		var badges = users[i].badges;
 
 		for (var j = 0; j < badges.length; j++) {
-			var ble = badges[j].split('/')
-			shortURL.push(ble[ble.length - 1])
-
-			//var boo = shortURL.split('.');
-			
-		}
+			var longURL = badges[j].split('/')
+			shortURL.push(longURL[longURL.length - 1])
+		}		
 	}
-	console.log(shortURL)
 
+	for(var k = 0; k < shortURL.length; k++) {
+		var su = (shortURL[k].split('.')[0]);
+		shortestURL.push(su)	
+	}
+
+	return shortestURL
+}
+
+// badgeURL to badgeName for single badgeURL
+function badgeNameSingle(badgeURL) {
+	var tets = badgeURL.split('/');
+	var bName = (tets[tets.length-1]);
+
+	console.log(bName.split('.')[0])
 }
