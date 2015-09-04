@@ -110,6 +110,7 @@ function score(badgeURL, username) {
 function recommendBadgesFor(username) {
 	var badges = [];
 	var array = [];
+	var newArray = [];
 	for (var i = 0; i < users.length; i ++) {
 		if (username === users[i].name) {
 			for (var k = 0; k < users[i].badges.length; k ++) {
@@ -127,11 +128,9 @@ function recommendBadgesFor(username) {
 
 	for (var m = 0; m < array.length; m++){
 		if(array[m].score !== 0) {
-			var newArray = [];
-			newArray.push(array[m])
+			newArray.push(array[m]);
 		}
 	}
-
 	return (newArray);
 }
 
@@ -167,10 +166,3 @@ function badgeNameSingle(badgeURL) {
 
 	console.log(bName.split('.')[0])
 }
-<<<<<<< HEAD
-
-//    return array.sort(function(a, b){
-//         return array[1].score - array[0].score
-//     })
-=======
->>>>>>> master
