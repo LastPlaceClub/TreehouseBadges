@@ -1,6 +1,6 @@
 var badgeCtor = function(users) {
 
-	var $div = $('<div>');
+	var $div = $('<div id=something>');
 	$div.appendTo('body');
 
 	for(var i = 0; i < (users.length); i++) {
@@ -21,7 +21,6 @@ var badgeCtor = function(users) {
 
 		}
 	}
-
 };
 
 function badgeEarnedBy(badgeURL) {
