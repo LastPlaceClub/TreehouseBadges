@@ -1,3 +1,5 @@
+
+
 html{
 	text-align:center;
 	font-family: sans-serif;
@@ -6,7 +8,7 @@ html{
 p{
 	display:flex;
 	flex-wrap: wrap;
-	align-content: center;
+	justify-content: center;
 }
 
 img {

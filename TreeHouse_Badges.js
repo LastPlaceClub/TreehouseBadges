@@ -2,18 +2,22 @@
 
 var badgeCtor = function(users) {
 
-	var $div = $('<div>');
+	var $div = $('<div id=something>');
 	$div.appendTo('body');
 
 	for(var i = 0; i < (users.length); i++) {
 		var $h1 = $('<h1>');
 		$h1.appendTo($div);
 
-		var userName = users[i].name
+		 obj = {val: i, text: users[i].name};
+		 arr.push(obj);
+
+
+		var userName = users[i].name;
 		$h1.html(userName);
 
-		var $p = $('<p>')
-		$p.appendTo($h1)
+		var $p = $('<p>');
+		$p.appendTo($h1);
 
 		for(var j = 0; j < users[i].badges.length; j++) {
 
@@ -24,6 +28,10 @@ var badgeCtor = function(users) {
 		}
 	}
 
+	var sel = $('<select>').appendTo('#awesome');
+	$(arr).each(function() {
+	 sel.append($("<option>").attr('value',this.val).text(this.text));
+	});
 };
 
 function badgeEarnedBy(badgeURL) {
@@ -80,6 +88,7 @@ var two;
     }
 }
 
+
 // function score(badgeName, username) {
 //     var array = [];
 //     var test = [];
@@ -95,9 +104,50 @@ var two;
 //     for(var key2 in name2) {
 //         result2.push(jobs[key2]);
 //     }
+
+function score(badgeURL, username) {
+    var array = [];
+    var test = [];
+		var names = badgeEarnedBy(badgeURL);
+		for (var i = 0; i < names.length; i ++) {
+			if (username != names[i]) {
+
+
+			test.push(similarity(username, names[i]));
+		}
+		else {
+			console.log("poop");
+		}
+	}
+		return _.round(_.sum(test), 3);
+}
+
 //
+function recommendBadgesFor(username) {
+	var badges = [];
+	var array = [];
+	for (var i = 0; i < users.length; i ++) {
+		if (username === users[i].name) {
+			for (var k = 0; k < users[i].badges.length; k ++) {
+		  badges.push(users[i].badges[k]);
+	 }
+	 }
+	}
+	var potentialBadges = _.difference(arrayOfAll, badges);
+	// push into an array, the badge and the score
+	for (var j = 0; j < potentialBadges.length; j ++) {
+		array.push({badge:potentialBadges[j], score: score(potentialBadges[j], username)});
+	}
+	return array;
+}
+//     var array = [];
+//     var potentialJobs = _.omit(jobs, Object.keys(does))
 //
+//     for(var key in potentialJobs) {
+//         array.push({job: key, score: score(key, (person.name))})
+//     }
 //
+
 // }
 
 
@@ -131,3 +181,8 @@ function badgeNameSingle(badgeURL) {
 
 	console.log(bName.split('.')[0])
 }
+
+//    return array.sort(function(a, b){
+//         return array[1].score - array[0].score
+//     })
+
