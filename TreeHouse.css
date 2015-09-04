@@ -7,9 +7,10 @@ html{
 	image-resolution: snap;
 }
 
-p {
-display:block;
-animation: slide-in;
+p{
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 img {
