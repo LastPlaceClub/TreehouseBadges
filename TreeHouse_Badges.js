@@ -1,6 +1,3 @@
-
-
-
 var badgeCtor = function(users) {
 
 	var $div = $('<div>');
