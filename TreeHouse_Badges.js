@@ -91,6 +91,8 @@ function score(badgeName, username) {
     var array = [];
     var test = [];
 
+    badgeURL = 
+    var comparePerson = intersectBadges()
 }
 // 		result1.push(users[i].badges);
 //     for(var key1 in name1){
@@ -104,3 +106,24 @@ function score(badgeName, username) {
 //
 //
 // }
+
+
+// badgeUrl to badgeName
+function badge() {
+	var userBadges = [];
+	var shortURL = [];
+
+	for(var i = 0; i < users.length; i ++) {
+		var badges = users[i].badges;
+
+		for (var j = 0; j < badges.length; j++) {
+			var ble = badges[j].split('/')
+			shortURL.push(ble[ble.length - 1])
+
+			//var boo = shortURL.split('.');
+			
+		}
+	}
+	console.log(shortURL)
+}
+}
