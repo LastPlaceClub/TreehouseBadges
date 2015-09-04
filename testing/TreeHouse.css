@@ -1,0 +1,17 @@
+
+
+html{
+	text-align:center;
+	font-family: sans-serif;
+}
+
+p{
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+img {
+	height: 60px;
+	width: 60px;
+}
