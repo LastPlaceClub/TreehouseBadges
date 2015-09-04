@@ -10,23 +10,14 @@ var badgeCtor = function(users) {
 		var $h1 = $('<h1>');
 		$h1.appendTo($div);
 
-		var userName = users[i].name
+		var userName = users[i].name;
 		$h1.html(userName);
 
-		var $p = $('<p>')
-		$p.appendTo($h1)
+		var $p = $('<p>');
+		$p.appendTo($h1);
 
 		for(var j = 0; j < users[i].badges.length; j++) {
 
-// <<<<<<< HEAD
-			var $td = $('<td>');
-			$td.appendTo($tr);
-			// if (j % 5 === 0) {
-			// 	var $row = $('<tr>');
-			// 	$row.append($table);
-			// }
-// =======
-// >>>>>>> master
 			var $badge_img = $('<img src="' + users[i].badges[j] + '">');
 			// $p.html($badge_img);
 			$p.append($badge_img);

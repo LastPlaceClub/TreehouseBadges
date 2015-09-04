@@ -1,28 +1,5 @@
-/*<<<<<<< HEAD
-img {
 
-	height: 50px;
-	width: 50px;
-}
 
-td:nth-child(5n) {
-	display: block;
-}
-
-td {
-    word-wrap: break-word;         /* All browsers since IE 5.5+ */
-    overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
-}
-
-.poop {
-	word-wrap: break-word;         /* All browsers since IE 5.5+ */
-	overflow-wrap: break-word;
-}
-
-.wrap p {
-  display: table-cell;
-  vertical-align: middle;
-/*=======*/*/
 html{
 	text-align:center;
 	font-family: sans-serif;
@@ -31,11 +8,10 @@ html{
 p{
 	display:flex;
 	flex-wrap: wrap;
-	align-content: center;
+	justify-content: center;
 }
 
 img {
 	height: 60px;
 	width: 60px;
-
 }

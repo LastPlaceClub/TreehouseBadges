@@ -25,6 +25,8 @@ function importUser(user) {
 var master = ['izelnakri'];
 var arrayOfAll = [];
 var object = $.get('http://teamtreehouse.com/izelnakri.json');
+//var newObj = object.responseJSON;
+
 
 function arrayMaker() {
 for (var i = 0; i < 322; i ++) {
