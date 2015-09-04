@@ -1,5 +1,3 @@
-//var _ = require('lodash')
-
 var badgeCtor = function(users) {
 
 	var $div = $('<div id=something>');
@@ -22,9 +20,7 @@ var badgeCtor = function(users) {
 		for(var j = 0; j < users[i].badges.length; j++) {
 
 			var $badge_img = $('<img src="' + users[i].badges[j] + '">');
-			// $p.html($badge_img);
 			$p.append($badge_img);
-
 		}
 	}
 
@@ -53,34 +49,38 @@ function intersectBadges(usernameA, usernameB) {
 	for (var i = 0; i < users.length; i ++) {
 		if (usernameA === users[i].name) {
 			result1.push(users[i].badges);
-			console.log(result1)
+
 		}
 	}
 	for (var k = 0; k < users.length; k ++) {
 		if (usernameB === users[k].name) {
 			result2.push(users[k].badges);
-			console.log(result2)
+
 		}
 	}
 
+	result1 = _.flatten(result1)
+	result2 = _.flatten(result2)
+
 	var same = _.intersection(result1, result2);
+
 	return same
 }
 
 
 function similarity(usernameA, usernameB){
-var one;
-var two;
-		for (var i = 0; i < users.length; i ++) {
-			if (usernameA === users[i].name) {
-				one = Object.keys(users[i].badges).length;
-			}
+	var one;
+	var two;
+	for (var i = 0; i < users.length; i ++) {
+		if (usernameA === users[i].name) {
+			one = Object.keys(users[i].badges).length;
 		}
-		for (var j = 0; j < users.length; j ++) {
-			if (usernameB === users[j].name) {
-				two = Object.keys(users[j].badges).length;
-			}
+	}
+	for (var j = 0; j < users.length; j ++) {
+		if (usernameB === users[j].name) {
+			two = Object.keys(users[j].badges).length;
 		}
+	}
     if (one > two) {
        return ((intersectBadges(usernameA, usernameB).length) / one);
     } else {
@@ -89,21 +89,6 @@ var two;
 }
 
 
-// function score(badgeName, username) {
-//     var array = [];
-//     var test = [];
-
-//     badgeURL =
-//     var comparePerson = intersectBadges()
-// }
-// 		result1.push(users[i].badges);
-//     for(var key1 in name1){
-//         result1.push(jobs[key1]);
-//     }
-//
-//     for(var key2 in name2) {
-//         result2.push(jobs[key2]);
-//     }
 
 function score(badgeURL, username) {
     var array = [];
@@ -112,14 +97,13 @@ function score(badgeURL, username) {
 		for (var i = 0; i < names.length; i ++) {
 			if (username != names[i]) {
 
-
 			test.push(similarity(username, names[i]));
 		}
 		else {
 			console.log("poop");
 		}
 	}
-		return _.round(_.sum(test), 3);
+		return _.sum(test);
 }
 
 //
@@ -130,25 +114,27 @@ function recommendBadgesFor(username) {
 		if (username === users[i].name) {
 			for (var k = 0; k < users[i].badges.length; k ++) {
 		  badges.push(users[i].badges[k]);
-	 }
-	 }
+	 		}
+		}
 	}
+
 	var potentialBadges = _.difference(arrayOfAll, badges);
+
 	// push into an array, the badge and the score
 	for (var j = 0; j < potentialBadges.length; j ++) {
 		array.push({badge:potentialBadges[j], score: score(potentialBadges[j], username)});
 	}
-	return array;
-}
-//     var array = [];
-//     var potentialJobs = _.omit(jobs, Object.keys(does))
-//
-//     for(var key in potentialJobs) {
-//         array.push({job: key, score: score(key, (person.name))})
-//     }
-//
 
-// }
+	for (var m = 0; m < array.length; m++){
+		if(array[m].score !== 0) {
+			var newArray = [];
+			newArray.push(array[m])
+		}
+	}
+
+	return (newArray);
+}
+
 
 
 // badgeUrl to badgeName for multiple users
@@ -181,7 +167,10 @@ function badgeNameSingle(badgeURL) {
 
 	console.log(bName.split('.')[0])
 }
+<<<<<<< HEAD
 
 //    return array.sort(function(a, b){
 //         return array[1].score - array[0].score
 //     })
+=======
+>>>>>>> master
