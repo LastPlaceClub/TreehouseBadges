@@ -87,13 +87,13 @@ var two;
     }
 }
 
-function score(badgeName, username) {
-    var array = [];
-    var test = [];
+// function score(badgeName, username) {
+//     var array = [];
+//     var test = [];
 
-    badgeURL = 
-    var comparePerson = intersectBadges()
-}
+//     badgeURL = 
+//     var comparePerson = intersectBadges()
+// }
 // 		result1.push(users[i].badges);
 //     for(var key1 in name1){
 //         result1.push(jobs[key1]);
@@ -125,5 +125,5 @@ function badge() {
 		}
 	}
 	console.log(shortURL)
-}
+
 }
