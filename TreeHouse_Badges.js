@@ -28,9 +28,9 @@ var badgeCtor = function(users) {
 		}
 	}
 
-	var sel = $('<select class="target">').appendTo('#awesome');
+	var sel = $('<select class="target" id="something" onchange="run()">').appendTo('#awesome');
 	$(arr).each(function() {
-	 sel.append($("<option value='option1' id='option'>").attr('value',this.val).text(this.text));
+	 sel.append($("<option value='option1' id='option' selected='selected'>").attr('value',this.val).text(this.text));
 	});
 };
 
@@ -93,7 +93,7 @@ var two;
 //     var array = [];
 //     var test = [];
 
-//     badgeURL = 
+//     badgeURL =
 //     var comparePerson = intersectBadges()
 // }
 // 		result1.push(users[i].badges);
@@ -163,12 +163,12 @@ function badgeNameMultiple(usersObject) {
 		for (var j = 0; j < badges.length; j++) {
 			var longURL = badges[j].split('/')
 			shortURL.push(longURL[longURL.length - 1])
-		}		
+		}
 	}
 
 	for(var k = 0; k < shortURL.length; k++) {
 		var su = (shortURL[k].split('.')[0]);
-		shortestURL.push(su)	
+		shortestURL.push(su)
 	}
 
 	return shortestURL
@@ -185,4 +185,3 @@ function badgeNameSingle(badgeURL) {
 //    return array.sort(function(a, b){
 //         return array[1].score - array[0].score
 //     })
-
