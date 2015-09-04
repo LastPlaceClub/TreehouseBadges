@@ -24,9 +24,9 @@ var badgeCtor = function(users) {
 		}
 	}
 
-	var sel = $('<select class="target">').appendTo('#awesome');
+	var sel = $('<select class="target" id="something" onchange="run()">').appendTo('#awesome');
 	$(arr).each(function() {
-	 sel.append($("<option value='option1' id='option'>").attr('value',this.val).text(this.text));
+	 sel.append($("<option value='option1' id='option' selected='selected'>").attr('value',this.val).text(this.text));
 	});
 };
 
@@ -49,13 +49,13 @@ function intersectBadges(usernameA, usernameB) {
 	for (var i = 0; i < users.length; i ++) {
 		if (usernameA === users[i].name) {
 			result1.push(users[i].badges);
-			
+
 		}
 	}
 	for (var k = 0; k < users.length; k ++) {
 		if (usernameB === users[k].name) {
 			result2.push(users[k].badges);
-			
+
 		}
 	}
 
@@ -89,6 +89,7 @@ function similarity(usernameA, usernameB){
 }
 
 
+
 function score(badgeURL, username) {
     var array = [];
     var test = [];
@@ -118,7 +119,7 @@ function recommendBadgesFor(username) {
 	}
 
 	var potentialBadges = _.difference(arrayOfAll, badges);
-	
+
 	// push into an array, the badge and the score
 	for (var j = 0; j < potentialBadges.length; j ++) {
 		array.push({badge:potentialBadges[j], score: score(potentialBadges[j], username)});
@@ -148,12 +149,12 @@ function badgeNameMultiple(usersObject) {
 		for (var j = 0; j < badges.length; j++) {
 			var longURL = badges[j].split('/')
 			shortURL.push(longURL[longURL.length - 1])
-		}		
+		}
 	}
 
 	for(var k = 0; k < shortURL.length; k++) {
 		var su = (shortURL[k].split('.')[0]);
-		shortestURL.push(su)	
+		shortestURL.push(su)
 	}
 
 	return shortestURL
@@ -166,3 +167,10 @@ function badgeNameSingle(badgeURL) {
 
 	console.log(bName.split('.')[0])
 }
+<<<<<<< HEAD
+
+//    return array.sort(function(a, b){
+//         return array[1].score - array[0].score
+//     })
+=======
+>>>>>>> master

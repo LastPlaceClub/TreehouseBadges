@@ -13,6 +13,11 @@ var arr = [
 ];
   var obj = {};
 
+
+
+
+
+//var sorted = usernames.sort(function( a, b ) { return b - a });
 usernames.forEach(function(name) {
     $.get('http:/teamtreehouse.com/'+name+'.json').
         done(importUser);
@@ -131,10 +136,10 @@ function myFunction() {
       return false;
     }
 
-    $( "div" ).remove();
+
     console.log(x);
     usernames.push(x);
-    $.ajax(
+    var ajax = $.ajax(
     {
       url: 'http://teamtreehouse.com/'+x+'.json',
       dataType: "json",
@@ -148,8 +153,16 @@ function myFunction() {
       },
       error: function(){
         alert("Not A Real User!");
+        //return false;
       }
       });
+      console.log(ajax.success);
+      if (ajax.error) {
+        return false;
+      }
+      else if (ajax.success) {
+        $( "div" ).remove();
+    }
 }
           //
           // // var $div = $('<div>');
@@ -188,30 +201,37 @@ var onSubmit2 = function()
 };
 
 // $('.target').change(function() {
-    var dropdown = $('.target');
-    var text = $( ".target option:selected" ).text();
-    console.log(text);
-    var $button1= $('#button1');
-  $button1.unbind('click');
-  $button1.click(onSubmit2);
- if(document.getElementById('option').value == "Matthew Kelley"){
-    $button1.click(onSubmit1);
-        //return;
-  }
+  //   var dropdown = $('.target');
+  //   var text = $( ".target option:selected" ).text();
+  //   console.log(text);
+  //   var $button1= $('#button1');
+  // $button1.unbind('click');
+  // $button1.click(onSubmit2);
+ // if(document.getElementById('option').value == "Matthew Kelley"){
+ //    $button1.click(onSubmit1);
+ //        //return;
+ //  }
 
 
 
 //});
+function run() {
+  var text = $("#something option:selected").text();
+  text = "" + text;
+  console.log(text);
+  recommendBadgesFor(text);
+}
+ // var e = document.getElementById("option");
+ // var strUser = e.options[e.selectedIndex].text;
+ //console.log(strUser);
 
-
-
-
-
+ //the text content of the selected option
+ // var value = $("#option").val();
+ // console.log(text);
 
 window.onload = function() {
   console.log("loaded!");
   loadMaster();
-  console.log(document.getElementById('option').value);
+  //console.log(document.getElementById('option').value);
 
 };
-
