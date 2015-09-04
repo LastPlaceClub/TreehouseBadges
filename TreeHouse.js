@@ -6,6 +6,12 @@ var arrayOfAll = [];
 var object = {};
 var newObj = {};
 var inputValue;
+var arr = [
+  // {val : 1, text: 'Matthew Kelley'},
+  // {val : 2, text: 'Do Nguyen'},
+  // {val : 3, text: 'Jeff Dunn'}
+];
+  var obj = {};
 
 usernames.forEach(function(name) {
     $.get('http:/teamtreehouse.com/'+name+'.json').
@@ -117,9 +123,14 @@ function loadMaster() {
 // addEventListener('click', addUser);
 
 function myFunction() {
-    $( "div" ).remove();
+
+
     var x = document.getElementById("myText").value;
     var y = 12;
+    if (x === "") {
+      return false;
+    }
+    $( "div" ).remove();
     console.log(x);
     usernames.push(x);
     $.ajax(
@@ -131,6 +142,8 @@ function myFunction() {
       {
         var newUser = data;
         importUser(newUser);
+
+
       }});
 
           //
@@ -160,7 +173,12 @@ function myFunction() {
 // console.log(form.elements.username.type);
 
 
+
+
+
 window.onload = function() {
   console.log("loaded!");
   loadMaster();
+
+
 };

@@ -7,6 +7,10 @@ var badgeCtor = function(users) {
 		var $h1 = $('<h1>');
 		$h1.appendTo($div);
 
+		 obj = {val: i, text: users[i].name};
+		 arr.push(obj);
+
+
 		var userName = users[i].name;
 		$h1.html(userName);
 
@@ -21,6 +25,11 @@ var badgeCtor = function(users) {
 
 		}
 	}
+
+	var sel = $('<select>').appendTo('#awesome');
+	$(arr).each(function() {
+	 sel.append($("<option>").attr('value',this.val).text(this.text));
+	});
 };
 
 function badgeEarnedBy(badgeURL) {
